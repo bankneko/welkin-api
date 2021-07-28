@@ -1,0 +1,51 @@
+{
+  "name": "welkin-api",
+  "version": "1.1.0",
+  "description": "API for Welkin",
+  "main": "app.js",
+  "scripts": {
+    "start": "node api.js",
+    "dev": "sudo nodemon api.js",
+    "prod": "export NODE_ENV=production && sudo -E nodemon api.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bankneko/welkin.git"
+  },
+  "author": "Welkin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bankneko/welkin/issues"
+  },
+  "homepage": "https://github.com/bankneko/welkin#readme",
+  "dependencies": {
+    "apollo-server-express": "^2.24.0",
+    "axios": "^0.21.1",
+    "bcryptjs": "^2.4.3",
+    "cookie-parser": "^1.4.5",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-graphql": "^0.12.0",
+    "express-mongo-sanitize": "^2.0.2",
+    "express-rate-limit": "^5.2.6",
+    "fs": "0.0.1-security",
+    "glob": "^7.1.6",
+    "got": "^11.8.2",
+    "graphql": "^15.5.0",
+    "graphql-tag": "^2.11.0",
+    "graphql-tools": "^7.0.4",
+    "graphql-upload": "^12.0.0",
+    "helmet": "^4.6.0",
+    "hpp": "^0.2.3",
+    "https": "^1.0.0",
+    "jsonwebtoken": "^8.5.1",
+    "moment": "^2.29.1",
+    "mongoose": "^5.12.10",
+    "nodemailer": "^6.5.0",
+    "pdf-parse": "^1.1.1",
+    "sharp": "^0.23.2",
+    "url-parse": "^1.5.1",
+    "validator": "^13.5.2"
+  }
+}
