@@ -120,7 +120,7 @@ module.exports = {
     // Getting A Student by Student ID
     student: async (_, { searchInput, performance }, { req, res }) => {
       /* ################### Check Authentication ################### */
-      // if(!req.isAuth) throw new ErrorHandler('Not Authenticated.', 401)
+      if(!req.isAuth) throw new ErrorHandler('Not Authenticated.', 401)
       /* ################### Check Authentication ################### */
 
       // Get A Student
@@ -166,8 +166,8 @@ module.exports = {
     // Get Batches
     batches: async (_, { input }, { req, res }) => {
       /* ################### Check Authentication ################### */
-      // if(!req.isAuth) throw new ErrorHandler('Not Authenticated.', 401)
-      // authorizedGroups(['admin', 'coordinator'], req.user)
+      if(!req.isAuth) throw new ErrorHandler('Not Authenticated.', 401)
+      authorizedGroups(['admin', 'coordinator'], req.user)
       /* ################### Check Authentication ################### */
 
       // Get All Batches
@@ -236,8 +236,8 @@ module.exports = {
     // Creating A new Student
     addStudent: async (_, { studentInput }, { req, res }) => {
       /* ################### Check Authentication ################### */
-      // if(!req.isAuth) throw new ErrorHandler('Not Authenticated.', 401)
-      // authorizedGroups(['admin', 'coordinator'], req.user)
+      if(!req.isAuth) throw new ErrorHandler('Not Authenticated.', 401)
+      authorizedGroups(['admin', 'coordinator'], req.user)
       /* ################### Check Authentication ################### */
 
       // Get Advisor ID
@@ -319,8 +319,8 @@ module.exports = {
     // Deleting A Student
     deleteStudent: async (_, { searchInput }, { req, res }) => {
       /* ################### Check Authentication ################### */
-      // if(!req.isAuth) throw new ErrorHandler('Not Authenticated.', 401)
-      // authorizedGroups(['admin', 'coordinator'], req.user)
+      if(!req.isAuth) throw new ErrorHandler('Not Authenticated.', 401)
+      authorizedGroups(['admin', 'coordinator'], req.user)
       /* ################### Check Authentication ################### */
 
       // Check Existing Student from Student ID
@@ -334,8 +334,8 @@ module.exports = {
     },
     sendAppointment: async (_, { options, appointment }, { req, res }) => {
       /* ################### Check Authentication ################### */
-      // if(!req.isAuth) throw new ErrorHandler('Not Authenticated.', 401)
-      // authorizedGroups(['admin', 'coordinator', 'program director'], req.user)
+      if(!req.isAuth) throw new ErrorHandler('Not Authenticated.', 401)
+      authorizedGroups(['admin', 'coordinator', 'program director'], req.user)
       /* ################### Check Authentication ################### */
       // Get Student from Student ID
       const students = await Student.find({
@@ -467,8 +467,8 @@ module.exports = {
     // Broadcast Message to Student's Line
     broadcastStudent: async (_, { sid, message }, { req, res }) => {
       /* ################### Check Authentication ################### */
-      // if(!req.isAuth) throw new ErrorHandler('Not Authenticated.', 401)
-      // authorizedGroups(['admin', 'coordinator', 'program director'], req.user)
+      if(!req.isAuth) throw new ErrorHandler('Not Authenticated.', 401)
+      authorizedGroups(['admin', 'coordinator', 'program director'], req.user)
       /* ################### Check Authentication ################### */
 
       // Get Student from Student ID

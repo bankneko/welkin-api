@@ -12,7 +12,7 @@ module.exports = {
   Query: {
     config: async(_, { configInput }, { req, res }) => {
       /* ################### Check Authentication ################### */
-      // if(!req.isAuth) throw new ErrorHandler('Not Authenticated.', 401)
+      if(!req.isAuth) throw new ErrorHandler('Not Authenticated.', 401)
       /* ################### Check Authentication ################### */
       let config = await WebConf.findOne().populate({
         path: 'announcements',
@@ -41,8 +41,8 @@ module.exports = {
 
     announcements: async (_, { }, { req, res }) => {
       /* ################### Check Authentication ################### */
-      // if(!req.isAuth) throw new ErrorHandler('Not Authenticated.', 401)
-      // authorizedGroups(['admin', 'coordinator'], req.user)
+      if(!req.isAuth) throw new ErrorHandler('Not Authenticated.', 401)
+      authorizedGroups(['admin', 'coordinator'], req.user)
       /* ################### Check Authentication ################### */
       let announcements = await WebConf.findOne().populate({
         path: 'announcements',

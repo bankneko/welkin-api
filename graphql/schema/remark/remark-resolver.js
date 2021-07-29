@@ -10,7 +10,7 @@ module.exports = {
   Query: {
     remarks: async(_, { studentId }, { req, res }) => {
       /* ################### Check Authentication ################### */
-      // if(!req.isAuth) throw new ErrorHandler('Not Authenticated.', 401)
+      if(!req.isAuth) throw new ErrorHandler('Not Authenticated.', 401)
       /* ################### Check Authentication ################### */
 
       // Get Student ID from Student UID
@@ -57,7 +57,7 @@ module.exports = {
     },
     delRemark: async (_, { remarkId }, { req, res }) => {
       /* ################### Check Authentication ################### */
-      // if(!req.isAuth) throw new ErrorHandler('Not Authenticated.', 401)
+      if(!req.isAuth) throw new ErrorHandler('Not Authenticated.', 401)
       /* ################### Check Authentication ################### */
 
       // Find Remark from remark ID

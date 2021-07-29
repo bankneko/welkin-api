@@ -8,7 +8,7 @@ module.exports = {
         //Getting All Courses
         courses: async(_,{searchInput},{req,res}) => {
             /* ################### Check Authentication ################### */
-            // if(!req.isAuth) throw new ErrorHandler('Not Authenticated.', 401)
+            if(!req.isAuth) throw new ErrorHandler('Not Authenticated.', 401)
             /* ################### Check Authentication ################### */
 
             //Get Courses
@@ -49,7 +49,7 @@ module.exports = {
         },
         course : async (_, { searchInput }, { req, res }) => {
             /* ################### Check Authentication ################### */
-            // if(!req.isAuth) throw new ErrorHandler('Not Authenticated.', 401)
+            if(!req.isAuth) throw new ErrorHandler('Not Authenticated.', 401)
             /* ################### Check Authentication ################### */
 
             // Get Course
@@ -90,8 +90,8 @@ module.exports = {
         // Creating A new Course
         addCourse: async(_,{ courseInput }, {req,res}) => {
             /* ################### Check Authentication ################### */
-            // if(!req.isAuth) throw new ErrorHandler('Not Authenticated.', 401)
-            // authorizedGroups(['admin', 'coordinator'], req.user)
+            if(!req.isAuth) throw new ErrorHandler('Not Authenticated.', 401)
+            authorizedGroups(['admin', 'coordinator'], req.user)
             /* ################### Check Authentication ################### */
 
             // Check Existing course from course code
@@ -104,8 +104,8 @@ module.exports = {
         // Updating A Course
         updateCourse: async (_, { searchInput, courseInput }) => {
             /* ################### Check Authentication ################### */
-            // if(!req.isAuth) throw new ErrorHandler('Not Authenticated.', 401)
-            // authorizedGroups(['admin', 'coordinator'], req.user)
+            if(!req.isAuth) throw new ErrorHandler('Not Authenticated.', 401)
+            authorizedGroups(['admin', 'coordinator'], req.user)
             /* ################### Check Authentication ################### */
 
             // Check Existing Course from Course ID
@@ -122,8 +122,8 @@ module.exports = {
         // Deleting A Course
         deleteCourse: async (_, { searchInput }) => {
             /* ################### Check Authentication ################### */
-            // if(!req.isAuth) throw new ErrorHandler('Not Authenticated.', 401)
-            // authorizedGroups(['admin', 'coordinator'], req.user)
+            if(!req.isAuth) throw new ErrorHandler('Not Authenticated.', 401)
+            authorizedGroups(['admin', 'coordinator'], req.user)
             /* ################### Check Authentication ################### */
 
             // Check Existing Course from Course ID

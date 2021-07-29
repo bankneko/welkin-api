@@ -106,7 +106,7 @@ module.exports = {
 
         getSecretCode: async (_, {}, { req, res }) => {
             /* ################### Check Authentication ################### */
-            // if(!req.isAuth) throw new ErrorHandler('Not Authenticated.', 401)
+            if(!req.isAuth) throw new ErrorHandler('Not Authenticated.', 401)
             /* ################### Check Authentication ################### */
 
             let user = await User.findById(req.user.id).select('+lineUID +lineSecretCode')

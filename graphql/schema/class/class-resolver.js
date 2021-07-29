@@ -16,7 +16,7 @@ module.exports = {
         // Get All Classes
         classes: async(_, { searchInput }, { req, res }) => {
           /* ################### Check Authentication ################### */
-          // if(!req.isAuth) throw new ErrorHandler('Not Authenticated.', 401)
+          if(!req.isAuth) throw new ErrorHandler('Not Authenticated.', 401)
           /* ################### Check Authentication ################### */
           try {
             if(searchInput.course_code) {
@@ -80,7 +80,7 @@ module.exports = {
 
         class: async(_, { classId }, { req, res }) => {
           /* ################### Check Authentication ################### */
-          // if(!req.isAuth) throw new ErrorHandler('Not Authenticated.', 401)
+          if(!req.isAuth) throw new ErrorHandler('Not Authenticated.', 401)
           /* ################### Check Authentication ################### */
 
           // Get Class by ID
@@ -120,8 +120,8 @@ module.exports = {
         // Add Class
         addClass: async (_, { classInput }, { req, res }) => {
           /* ################### Check Authentication ################### */
-          // if(!req.isAuth) throw new ErrorHandler('Not Authenticated.', 401)
-          // authorizedGroups(['admin', 'coordinator'], req.user)
+          if(!req.isAuth) throw new ErrorHandler('Not Authenticated.', 401)
+          authorizedGroups(['admin', 'coordinator'], req.user)
           /* ################### Check Authentication ################### */
 
           // Get Course ID from Course Code

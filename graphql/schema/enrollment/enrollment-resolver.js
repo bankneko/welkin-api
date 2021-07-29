@@ -19,7 +19,7 @@ module.exports = {
   Query: {
     countStudent: async (_, { course_code, batch, includeNonCI }, { req, res }) => {
       /* ################### Check Authentication ################### */
-      // if(!req.isAuth) throw new ErrorHandler('Not Authenticated.', 401)
+      if(!req.isAuth) throw new ErrorHandler('Not Authenticated.', 401)
       /* ################### Check Authentication ################### */
 
       // Get Course ID from Course Code
@@ -100,7 +100,7 @@ module.exports = {
     
     courseOverall: async (_, { batches, includeNonCI }, {req, res}) => {
       /* ################### Check Authentication ################### */
-      // if(!req.isAuth) throw new ErrorHandler('Not Authenticated.', 401)
+      if(!req.isAuth) throw new ErrorHandler('Not Authenticated.', 401)
       /* ################### Check Authentication ################### */
 
       // Get All Courses
@@ -227,8 +227,8 @@ module.exports = {
   Mutation: {
     uploadGrade: async (_, { gradeInput }, { req, res }) => {
       /* ################### Check Authentication ################### */
-      // if(!req.isAuth) throw new ErrorHandler('Not Authenticated.', 401)
-      // authorizedGroups(['admin', 'coordinator'], req.user)
+      if(!req.isAuth) throw new ErrorHandler('Not Authenticated.', 401)
+      authorizedGroups(['admin', 'coordinator'], req.user)
       /* ################### Check Authentication ################### */
 
       const session = await mongoose.startSession()
@@ -337,8 +337,8 @@ module.exports = {
     },
     uploadUrl: async (_, { url }, { req, res }) => {
       /* ################### Check Authentication ################### */
-      // if(!req.isAuth) throw new ErrorHandler('Not Authenticated.', 401)
-      // authorizedGroups(['admin', 'coordinator'], req.user)
+      if(!req.isAuth) throw new ErrorHandler('Not Authenticated.', 401)
+      authorizedGroups(['admin', 'coordinator'], req.user)
       /* ################### Check Authentication ################### */
 
       function splitWithTail (str, delim, count) {
@@ -528,8 +528,8 @@ module.exports = {
     },
     calculateGrade: async (_, { sid }, { req, res }) => {
       /* ################### Check Authentication ################### */
-      // if(!req.isAuth) throw new ErrorHandler('Not Authenticated.', 401)
-      // authorizedGroups(['admin', 'coordinator'], req.user)
+      if(!req.isAuth) throw new ErrorHandler('Not Authenticated.', 401)
+      authorizedGroups(['admin', 'coordinator'], req.user)
       /* ################### Check Authentication ################### */
 
       let student = await Student.findOne({sid})
@@ -551,8 +551,8 @@ module.exports = {
     },
     updateEnrollment: async (_, { eid, enrollmentInput } , {req,res}) => {
       /* ################### Check Authentication ################### */
-      // if(!req.isAuth) throw new ErrorHandler('Not Authenticated.', 401)
-      // authorizedGroups(['admin', 'coordinator'], req.user)
+      if(!req.isAuth) throw new ErrorHandler('Not Authenticated.', 401)
+      authorizedGroups(['admin', 'coordinator'], req.user)
       /* ################### Check Authentication ################### */
 
       // Calculate grade_value and isGrading
